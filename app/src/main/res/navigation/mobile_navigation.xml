@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.cathay.exam.mvc.ui.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_answer"
+            app:destination="@id/navigation_answer" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_result"
+            app:destination="@id/navigation_result" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_answer"
+        android:name="com.cathay.exam.mvc.ui.AnswerFragment"
+        android:label="@string/title_answer"
+        tools:layout="@layout/fragment_answer"
+        />
+
+    <fragment
+        android:id="@+id/navigation_result"
+        android:name="com.cathay.exam.mvc.ui.ResultFragment"
+        android:label="@string/title_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_navigation_result_to_navigation_result_detail"
+            app:destination="@id/navigation_result_detail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_result_detail"
+        android:name="com.cathay.exam.mvc.ui.ResultDetailFragment"
+        android:label="@string/title_result_detail"
+        tools:layout="@layout/fragment_result_detail" />
+</navigation>

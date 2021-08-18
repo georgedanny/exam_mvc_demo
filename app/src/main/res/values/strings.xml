@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ExamMvcDemo</string>
+    <string name="title_home">Home</string>
+    <string name="title_answer">Answer</string>
+    <string name="title_result">Result</string>
+    <string name="title_result_detail">ResultDetail</string>
+    <string name="score">得分:%d</string>
+    <string name="confirm">確定</string>
+    <string name="cancel">取消</string>
+    <string name="title">提醒</string>
+    <string name="msg">離開後資料會清除資料</string>
+    <string name="answer">Ans:%s</string>
+</resources>
