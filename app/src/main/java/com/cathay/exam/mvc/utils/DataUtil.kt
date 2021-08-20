@@ -16,12 +16,14 @@ object DataUtil {
         exam2.topic = "下列日常生活應用中，何者是遊戲機？"
         exam2.userAns = ",,,"
         exam2.ans = "3"
+        exam2.isSingle = true
         exam2.options = "[數位相機,省電日光燈,Xbox,三速電風扇]"
 
         val exam3 = ExamRoomDao()
         exam3.topic = "下列日常生活應用中，何者會使用到藍芽？"
         exam3.userAns = ",,,"
         exam3.ans = "3"
+        exam3.isSingle = true
         exam3.options = "[腳踏車,提款機,冷氣機,點滴注射]"
 
         val exam4 = ExamRoomDao()

@@ -60,6 +60,7 @@ class ExamRepo(private val roomDao: RoomDao) {
                 ans = it.ans
                 userAns = it.userAns
                 options = it.options
+                isSingle = it.isSingle
             }
         }.toMutableList()
 

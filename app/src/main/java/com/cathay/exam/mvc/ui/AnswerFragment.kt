@@ -14,7 +14,6 @@ import com.cathay.exam.mvc.base.ToolbarFragment
 import com.cathay.exam.mvc.data.ClickType
 import com.cathay.exam.mvc.data.entity.ExamEntity
 import com.cathay.exam.mvc.data.repo.ExamRepo
-import com.google.gson.Gson
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.flow.catch
@@ -80,6 +79,26 @@ class AnswerFragment : ToolbarFragment() {
 
     }
 
+    private fun setCheckBoxListen(){
+
+        checkBoxs.mapIndexed { index, checkBox ->
+            checkBox.setOnCheckedChangeListener { buttonView, isChecked ->
+                removeCheckChangeListen()
+                checkBoxs.map {
+                    it.isChecked = false
+                }
+               buttonView.isChecked = true
+                setCheckBoxListen()
+            }
+        }
+    }
+
+    private fun removeCheckChangeListen(){
+        checkBoxs.map {  checkBox ->
+            checkBox.setOnCheckedChangeListener(null)
+        }
+    }
+
     //get exam data from DB
     private fun getExamData() {
         GlobalScope.launch(Dispatchers.Main) {
@@ -101,6 +120,11 @@ class AnswerFragment : ToolbarFragment() {
                             val item = view.findViewById<TextView>(R.id.item)
                             checkBoxs.add(checkbox)
                             item.text = (it + 1).toString() + "."
+                        }
+                        if (entity.isSingle){
+                            setCheckBoxListen()
+                        }else{
+                            removeCheckChangeListen()
                         }
 
                         entity.userAns?.apply {
